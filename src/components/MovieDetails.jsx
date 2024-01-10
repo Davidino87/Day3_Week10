@@ -13,9 +13,8 @@ const MovieDetails = () => {
   const [movieComments, setMovieComments] = useState([]);
 
   useEffect(() => {
-    // dobbiamo fare la fetch per i dettagli
     getDetails();
-    // dobbiamo fare la fetch per i commenti
+
     getComments();
   }, []);
 
@@ -23,7 +22,6 @@ const MovieDetails = () => {
     fetch(OMDB_URL + "&i=" + params.movieId)
       .then((res) => {
         if (res.ok) {
-          // abbiamo ottenuto luce verde dalla get su omdbapi
           return res.json();
         } else {
           throw new Error("errore nel recupero dettagli film");
@@ -45,7 +43,6 @@ const MovieDetails = () => {
     })
       .then((res) => {
         if (res.ok) {
-          // abbiamo ottenuto luce verde dalla get su omdbapi
           return res.json();
         } else {
           throw new Error("errore nel recupero commenti film");
